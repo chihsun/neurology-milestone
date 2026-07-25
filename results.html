@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>評估結果｜神經學里程碑</title>
+  <script>(()=>{const m=localStorage.getItem('neurologyMilestoneThemeV1')||'system';const d=m==='system'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;document.documentElement.dataset.theme=d;document.documentElement.style.colorScheme=d;})();</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="container" id="resultsRoot" hidden>
+  <div class="topbar">
+    <div class="brand"><h1>評估結果</h1><p>歷次神經學里程碑評估、核心能力與單項趨勢</p></div>
+    <div class="top-actions">
+      <div class="user-chip"><span id="userLabel"></span><button id="logoutBtn" class="link-button" type="button">登出</button></div>
+      <div class="theme-control"><label for="themeSelect">顯示模式</label><select id="themeSelect"><option value="system">跟隨系統</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+      <div class="nav"><a href="index.html">評估</a><a class="active" href="results.html">瀏覽結果</a></div>
+    </div>
+  </div>
+
+  <section class="panel dashboard-panel">
+    <div class="section-heading"><div><h2>六大核心能力趨勢</h2><p>同一次評估內，僅以可數值化的 Level 1–5（含 .5）計算各核心能力平均；免評／不適用不納入。</p></div></div>
+    <div class="chart-wrap chart-tall"><canvas id="categoryChart"></canvas></div>
+  </section>
+
+  <section class="panel dashboard-panel">
+    <div class="section-heading trend-heading"><div><h2>單項能力歷次趨勢</h2><p>選擇一項核心能力，查看每次評估的 Level 變化。</p></div><div class="field compact-field"><label for="itemSelect">評估項目</label><select id="itemSelect"></select></div></div>
+    <div class="chart-wrap"><canvas id="itemChart"></canvas></div>
+  </section>
+
+  <section class="panel dashboard-panel">
+    <div class="section-heading"><div><h2>21 項能力變化總覽</h2><p>比較每個項目的第一次與最近一次「可數值化」評估。</p></div></div>
+    <div class="table-scroll"><table class="trend-table"><thead><tr><th>項目</th><th>初次</th><th>最近</th><th>變化</th></tr></thead><tbody id="trendTableBody"></tbody></table></div>
+  </section>
+
+  <div class="toolbar"><button id="exportBtn" class="btn btn-secondary">匯出 JSON</button></div>
+  <h2 class="records-title">歷次評估</h2>
+  <div id="results"></div>
+</div>
+<div id="pageLoading" class="page-loading">載入中…</div>
+<script src="theme.js"></script>
+<script src="data.js"></script>
+<script type="module" src="results.js"></script>
+</body>
+</html>

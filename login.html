@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>登入｜神經學里程碑評估</title>
+  <script>(()=>{const m=localStorage.getItem('neurologyMilestoneThemeV1')||'system';const d=m==='system'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;document.documentElement.dataset.theme=d;document.documentElement.style.colorScheme=d;})();</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="login-shell">
+  <section class="login-card">
+    <div class="brand login-brand"><h1>神經學里程碑評估 2.0</h1><p>教師登入</p></div>
+    <div class="theme-control login-theme"><label for="themeSelect">顯示模式</label><select id="themeSelect"><option value="system">跟隨系統</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+    <form id="loginForm">
+      <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="password">密碼</label><input id="password" type="password" autocomplete="current-password" required></div>
+      <button class="btn btn-primary login-btn" type="submit">登入</button>
+      <div id="loginMessage" class="form-message" aria-live="polite"></div>
+    </form>
+    <p class="login-help">帳號由 Firebase Authentication 建立；只有加入 <code>authorizedUsers</code> 的帳號可以讀寫評估資料。</p>
+  </section>
+</div>
+<script src="theme.js"></script>
+<script type="module" src="login.js"></script>
+</body>
+</html>

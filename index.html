@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>神經學里程碑評估</title>
+  <script>(()=>{const m=localStorage.getItem('neurologyMilestoneThemeV1')||'system';const d=m==='system'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;document.documentElement.dataset.theme=d;document.documentElement.style.colorScheme=d;})();</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container" id="appRoot" hidden>
+  <div class="topbar">
+    <div class="brand"><h1>神經學里程碑評估 2.0</h1><p>21 項核心能力評估表｜Firestore 雲端版</p></div>
+    <div class="top-actions">
+      <div class="user-chip"><span id="userLabel"></span><button id="logoutBtn" class="link-button" type="button">登出</button></div>
+      <div class="theme-control"><label for="themeSelect">顯示模式</label><select id="themeSelect"><option value="system">跟隨系統</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+      <div class="nav"><a class="active" href="index.html">評估</a><a href="results.html">瀏覽結果</a></div>
+    </div>
+  </div>
+  <form id="evalForm">
+    <section class="panel"><div class="meta-grid"><div class="field"><label for="evalDate">評估日期 <span class="required">*</span></label><input id="evalDate" type="date" required></div><div class="field"><label for="evaluator">評估者</label><input id="evaluator" type="text" placeholder="請輸入評估者姓名"></div></div></section>
+    <div id="items"></div>
+    <section class="panel"><div class="field"><label for="comment">總評語</label><textarea id="comment" placeholder="可自由輸入建議和評語內容"></textarea></div></section>
+    <div class="sticky-submit"><div id="status" class="status">尚未完成</div><button type="reset" class="btn btn-secondary">清除</button><button id="saveBtn" type="submit" class="btn btn-primary">儲存本次評估</button></div>
+  </form>
+</div>
+<div id="pageLoading" class="page-loading">載入中…</div>
+<script src="theme.js"></script>
+<script src="data.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
